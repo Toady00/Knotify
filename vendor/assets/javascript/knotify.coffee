@@ -17,15 +17,15 @@ class Knotify
     @notification.show()
 
   _createNotification: ->
-    @notification = @wbktNote.createNotification(@img, @title, @body)
+    @notification = @wbktNote.createNotification(@img, @title, @content)
     @notification.ondisplay = @onDisplay
     @notification.onclose   = @onClose
     @notification.onclick   = @onClick
     @notification.onerror   = @onError
 
 class KnotifyPermission
-  constructor: (target, event = 'click') ->
-    document.querySelector(target).addEventListener event, =>
+  constructor: (target, eventTrigger = 'click') ->
+    document.querySelector(target).addEventListener eventTrigger, =>
       @_getPermission() unless @_checkPermission() == 0
 
   _getPermission: ->
