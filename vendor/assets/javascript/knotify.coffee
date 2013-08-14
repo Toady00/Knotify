@@ -25,7 +25,7 @@ class Knotify
 
 class KnotifyPermission
   constructor: (target, event = 'click') ->
-    document.querySelector(target).addEventListener event, ->
+    document.querySelector(target).addEventListener event, =>
       @_getPermission() unless @_checkPermission() == 0
 
   _getPermission: ->
